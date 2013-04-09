@@ -1,3 +1,15 @@
+// nodetime APM only for production
+// need to keep this before all other require
+if(process.env.NODETIME_ACCOUNT_KEY 
+  && process.env.NODE_ENV
+  && process.env.NODE_ENV == 'production') {
+  require('nodetime').profile({
+    accountKey: process.env.NODETIME_ACCOUNT_KEY,
+    appName: 'ci.axiomzen.com' // optional
+  });
+}
+
+/////////////
 var app = require('./lib/app'),
     backchannel = require('./lib/backchannel'),
     common = require('./lib/common'),
