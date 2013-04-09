@@ -1,12 +1,13 @@
 // nodetime APM only for production
 // need to keep this before all other require
-if(process.env.NODETIME_ACCOUNT_KEY 
+if(process.env.NODEFLY_APPLICATION_KEY
+  && process.env.APPLICATION_NAME
   && process.env.NODE_ENV
   && process.env.NODE_ENV == 'production') {
-  require('nodetime').profile({
-    accountKey: process.env.NODETIME_ACCOUNT_KEY,
-    appName: 'ci.axiomzen.com' // optional
-  });
+  require('nodefly').profile(
+    process.env.NODEFLY_APPLICATION_KEY,
+    [process.env.NODEFLY_APPLICATION_NAME , 'Heroku']
+  );
 }
 
 /////////////
