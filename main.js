@@ -1,7 +1,7 @@
 // nodetime APM only for production
 // need to keep this before all other require
 if(process.env.NODEFLY_APPLICATION_KEY
-  && process.env.APPLICATION_NAME
+  && process.env.NODEFLY_APPLICATION_NAME
   && process.env.NODE_ENV
   && process.env.NODE_ENV == 'production') {
   require('nodefly').profile(
